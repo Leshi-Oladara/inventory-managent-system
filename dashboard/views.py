@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("this is the homepage")
+    return render(request,"index.html")
 
 def employees(request):
-    return HttpResponse("This is the employee page")
+    return render(request,"employees.html")
