@@ -1,0 +1,26 @@
+{% extends 'partials/base.html' %}
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<a href="{% url 'dashboard:order_add' %}" class="btn btn-primary mb-3">Add Order</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Staff</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.product }}</td>
+            <td>{{ order.staff.username }}</td>
+            <td>{{ order.order_quantity }}</td>
+            <td>{{ order.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
