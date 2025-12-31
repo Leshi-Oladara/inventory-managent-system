@@ -1,0 +1,29 @@
+{% extends 'partials/base.html' %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<a href="{% url 'dashboard:product_add' %}" class="btn btn-primary mb-3">Add Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+                <a href="{% url 'dashboard:product_edit' product.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'dashboard:product_delete' product.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
